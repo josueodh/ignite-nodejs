@@ -15,4 +15,10 @@ categoriesRouter.post("/", (request, response) => {
   return response.status(201).json(category);
 });
 
+categoriesRouter.get("/", (request, response) => {
+  const categories = categoriesRepository.index();
+
+  return response.status(201).json(categories);
+});
+
 export { categoriesRouter };
