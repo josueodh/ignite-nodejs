@@ -11,8 +11,14 @@ class CategoriesRepository {
     this.categories = [];
   }
 
-  index(): Category[] {
+  findAll(): Category[] {
     return this.categories;
+  }
+
+  findByName(name: string): Category | undefined {
+    const category = this.categories.find((category) => category.name === name);
+
+    return category;
   }
   create({ name, description }: ICreateCategoryDTO): Category {
     const category = new Category();
